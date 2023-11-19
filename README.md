@@ -1,10 +1,10 @@
-# Token Drop Example
+# Token Donation on AAVE
 
 ## Introduction
 
 In this guide, we will utilize the [**Token Drop**](https://portal.thirdweb.com/contracts/token-drop) contract to release ERC-20 tokens!
 
-We also utilize the token drop's [claim phases](https://portal.thirdweb.com/pre-built-contracts/token-drop#setting-claim-phases) feature, to release the tokens for a price, and only allow a certain amount to be claimed per wallet.
+We also utilize the token drop's [donate phases](https://portal.thirdweb.com/pre-built-contracts/token-drop#setting-claim-phases) feature, to release the tokens for a price, and only allow a certain amount to be claimed per wallet.
 
 **Check out the Demo here**: https://token-drop.thirdweb-example.com/
 
@@ -14,7 +14,7 @@ We also utilize the token drop's [claim phases](https://portal.thirdweb.com/pre-
 
 - [**thirdweb React SDK**](https://docs.thirdweb.com/react): To connect to our NFT Collection Smart contract via React hooks such as [useTokenDrop](https://docs.thirdweb.com/react/react.usetokendrop), connect user's wallets, and other awesome hooks like [useActiveClaimCondition](https://docs.thirdweb.com/react/react.useactiveclaimcondition) and [useClaimIneligibilityReasons](https://docs.thirdweb.com/react/react.useclaimineligibilityreasons).
 
-- [**thirdweb TypeScript SDK**](https://docs.thirdweb.com/typescript): To claim/mint tokens from the token drop with [.claim](https://portal.thirdweb.com/pre-built-contracts/token-drop#claiming-tokens) , view token balance with [.balanceOf](https://portal.thirdweb.com/pre-built-contracts/token-drop#token-balance), and transfer tokens with [.transfer](https://portal.thirdweb.com/pre-built-contracts/token-drop#transfer-tokens).
+- [**thirdweb TypeScript SDK**](https://docs.thirdweb.com/typescript): To donate/mint tokens from the token drop with [.claim](https://portal.thirdweb.com/pre-built-contracts/token-drop#claiming-tokens) , view token balance with [.balanceOf](https://portal.thirdweb.com/pre-built-contracts/token-drop#token-balance), and transfer tokens with [.transfer](https://portal.thirdweb.com/pre-built-contracts/token-drop#transfer-tokens).
 
 ## Using This Repo
 
@@ -71,9 +71,9 @@ const { contract: tokenDropContract } = useContract(
 );
 ```
 
-## Claiming Tokens
+## Donating Tokens
 
-We use the `claim` function and pass in the desired amount of tokens to claim inside a `Web3Button` component:
+We use the `claim` function and pass in the desired amount of tokens to donate inside a `Web3Button` component:
 
 We store a value the user types into an input field in state:
 
@@ -85,7 +85,7 @@ const [amountToClaim, setAmountToClaim] = useState("");
 <div className={styles.claimGrid}>
   <input
     type="text"
-    placeholder="Enter amount to claim"
+    placeholder="Enter amount to donate"
     onChange={(e) => setAmountToClaim(e.target.value)}
     className={`${styles.textInput} ${styles.noGapBottom}`}
   />
@@ -93,10 +93,10 @@ const [amountToClaim, setAmountToClaim] = useState("");
     colorMode="dark"
     contractAddress="0xf1765d27B7040D1F879FB71f02a4E0b9258852ec"
     action={(contract) => contract.erc20.claim(amountToClaim)}
-    onSuccess={() => alert("Claimed!")}
+    onSuccess={() => alert("Donated!")}
     onError={(err) => alert(err)}
   >
-    Claim Tokens
+    Donate Tokens
   </Web3Button>
 </div>;
 ```

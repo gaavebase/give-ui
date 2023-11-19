@@ -45,7 +45,7 @@ const Home = () => {
     }
   }, [activeClaimCondition.data?.availableSupply]);
 
-  const numberClaimed = useMemo(() => {
+  const numberDonated = useMemo(() => {
     return BigNumber.from(claimedSupply.data?.value || 0).toString();
   }, [claimedSupply]);
 
@@ -139,7 +139,7 @@ const Home = () => {
           BigNumber.from(activeClaimCondition.data?.availableSupply || 0).lte(
             0
           )) ||
-        numberClaimed === numberTotal
+        numberDonated === numberTotal
       );
     } catch (e) {
       return false;
@@ -147,7 +147,7 @@ const Home = () => {
   }, [
     activeClaimCondition.data?.availableSupply,
     activeClaimCondition.isSuccess,
-    numberClaimed,
+    numberDonated,
     numberTotal,
   ]);
 
@@ -194,7 +194,7 @@ const Home = () => {
       return "Checking eligibility...";
     }
 
-    return "Claiming not available";
+    return "Donating not available";
   }, [
     isSoldOut,
     canClaim,
@@ -218,7 +218,7 @@ const Home = () => {
       {claimConditions.data?.length === 0 ||
         (claimConditions.data?.every((cc) => cc.maxClaimableSupply === "0") && (
           <p>
-            This drop is not ready to be minted yet. (No claim condition set)
+            This drop is not ready to be minted yet. (No donate condition set)
           </p>
         ))}
 
@@ -236,9 +236,9 @@ const Home = () => {
             />
           )}
 
-          <h2 className={styles.title}>Claim Tokens</h2>
+          <h2 className={styles.title}>Donate Tokens</h2>
           <p className={styles.explain}>
-            Claim ERC20 tokens from{" "}
+            Donate ERC20 tokens to{" "}
             <span className={styles.pink}>{contractMetadata?.name}</span>
           </p>
         </>
@@ -249,7 +249,7 @@ const Home = () => {
       <div className={styles.claimGrid}>
         <input
           type="number"
-          placeholder="Enter amount to claim"
+          placeholder="Enter amount to donate"
           onChange={(e) => {
             const value = parseInt(e.target.value);
             if (value > maxClaimable) {
@@ -267,7 +267,7 @@ const Home = () => {
           theme="dark"
           contractAddress={tokenAddress}
           action={(contract) => contract.erc20.claim(quantity)}
-          onSuccess={() => alert("Claimed!")}
+          onSuccess={() => alert("Donated!")}
           onError={(err) => alert(err)}
         >
           {buttonText}

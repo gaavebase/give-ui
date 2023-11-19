@@ -15,15 +15,15 @@ function MyApp({ Component, pageProps }: AppProps) {
       clientId={process.env.NEXT_PUBLIC_CLIENT_ID}
     >
       <Head>
-        <title>thirdweb Token Drop Example</title>
+        <title>gAaveBase Token Donation</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="description"
-          content="thirdweb Example Repository to Showcase the token drop contract, including claim and transfer features."
+          content="Using the token drop contract of ThirdWeb, including donate and transfer features."
         />
         <meta
           name="keywords"
-          content="thirdweb token drop, thirdweb token transfer, thirdweb token claim, thirdweb token claim phases"
+          content="gaavebase token drop, gaavebase token transfer, gaavebase token donate, gaavebase token donate phases"
         />
       </Head>
       <Component {...pageProps} />
