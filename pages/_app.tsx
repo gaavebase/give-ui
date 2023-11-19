@@ -6,11 +6,14 @@ import "../styles/globals.css";
 import { AppProps } from "next/app";
 
 // This is the chain your dApp will work on.
-const activeChain = "mumbai";
+const activeChain = "optimism-goerli";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThirdwebProvider activeChain={activeChain}>
+    <ThirdwebProvider
+      activeChain={activeChain}
+      clientId={process.env.NEXT_PUBLIC_CLIENT_ID}
+    >
       <Head>
         <title>thirdweb Token Drop Example</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

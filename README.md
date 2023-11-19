@@ -18,7 +18,7 @@ We also utilize the token drop's [claim phases](https://portal.thirdweb.com/pre-
 
 ## Using This Repo
 
-- Create a Token Drop contract via the thirdweb dashboard on the Mumbai test network.
+- Create a Token Drop contract via the thirdweb dashboard on the optimism-goerli test network.
 
 - Create a project using this example by running:
 
@@ -26,7 +26,7 @@ We also utilize the token drop's [claim phases](https://portal.thirdweb.com/pre-
 npx thirdweb create --template token-drop
 ```
 
-- Replace our demo token drop contract address (`0x5ec440E5965da9570CAa66402980c6D20cbe0663`) with your token drop contract address!
+- Replace our demo token drop contract address (`0xf1765d27B7040D1F879FB71f02a4E0b9258852ec`) with your token drop contract address!
 
 # Guide
 
@@ -38,7 +38,7 @@ It allows us to access all of the React SDK's helpful hooks anywhere in our appl
 
 ```jsx
 // This is the chain your dApp will work on.
-const activeChainId = "mumbai";
+const activeChainId = "optimism-goerli";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -66,7 +66,7 @@ We use the [useContract](https://docs.thirdweb.com/react/react.useContract) hook
 
 ```jsx
 const { contract: tokenDropContract } = useContract(
-  "0x5ec440E5965da9570CAa66402980c6D20cbe0663",
+  "0xf1765d27B7040D1F879FB71f02a4E0b9258852ec",
   "token-drop"
 );
 ```
@@ -91,7 +91,7 @@ const [amountToClaim, setAmountToClaim] = useState("");
   />
   <Web3Button
     colorMode="dark"
-    contractAddress="0x5ec440E5965da9570CAa66402980c6D20cbe0663"
+    contractAddress="0xf1765d27B7040D1F879FB71f02a4E0b9258852ec"
     action={(contract) => contract.erc20.claim(amountToClaim)}
     onSuccess={() => alert("Claimed!")}
     onError={(err) => alert(err)}
