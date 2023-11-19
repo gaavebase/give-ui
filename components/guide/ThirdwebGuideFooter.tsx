@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export default function ThirdwebGuideFooter() {
   return (
@@ -17,10 +18,7 @@ export default function ThirdwebGuideFooter() {
         }}
         role="button"
         onClick={() =>
-          window.open(
-            "https://github.com/thirdweb-example/token-drop",
-            "_blank"
-          )
+          window.open("https://github.com/gaavebase/give-ui", "_blank")
         }
       />
 
@@ -31,18 +29,16 @@ export default function ThirdwebGuideFooter() {
           right: 18,
         }}
       >
-        <img
+        <Image
           src="/github.png"
           width={40}
           height={40}
           role="button"
           style={{ cursor: "pointer" }}
           onClick={() =>
-            window.open(
-              "https://github.com/thirdweb-example/token-drop",
-              "_blank"
-            )
+            window.open("https://github.com/gaavebase/give-ui", "_blank")
           }
+          alt={"github logo"}
         />
       </div>
     </>
